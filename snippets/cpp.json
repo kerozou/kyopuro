@@ -1,0 +1,408 @@
+{
+    // Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+
+    "cin >> ~": {
+        "prefix": "cin",
+        "body": [
+            "cin >> "
+        ],
+        "description": "cin >> ~ "
+    },
+
+    "memset": {
+        "prefix": "memset",
+        "body": [
+            "memset(v,0,sizeof(v))"
+        ],
+        "description": "memset"
+    },
+
+    "PI": {
+        "prefix": "PI",
+        "body": [
+            "M_PI"
+        ],
+        "description": "3.1415....."
+    },
+
+    ". >>": {
+        "prefix": "l",
+        "body": [
+            ">> "
+        ],
+        "description": ">> ~ "
+    },
+
+    "cout << ~ << endl;": {
+        "prefix": "cout",
+        "body": [
+            "cout << $1 << endl;"
+        ],
+        "description": "cout << ~ << endl;"
+    },
+
+    "for": {
+        "prefix": "for",
+        "body": [
+            "for(${1:type} ${2:index} = 0;${2:index} < ${3:length};++${2:index}) {",
+            "\t${0:}",
+            "}"
+        ],
+        "description": "for ループに対するコード スニペット"
+    },
+
+    "GCD": {
+        "prefix": "GCD",
+        "body": [
+            "auto GCD(auto a, auto b) { //ユークリッドの互助法で最大公約数",
+            "    if(a == 0)return b;",
+            "    if(b == 0)return a;",
+            "    if(a % b == 0)return b;",
+            "    else return GCD(b, a % b);",
+            "}",
+            "auto LCM(auto a, auto b) { //GCDを使って最小公倍数を求める",
+            "    auto g = GCD(a, b);",
+            "    return (a / g) * b;",
+            "}",
+        ],
+        "description": ""
+    },
+
+
+    "ketasuu": {
+        "prefix": "ketasuu",
+        "body": [
+            "unsigned GetDigit(unsigned num) {"
+            "\tif (num == 0) return 1;"
+            "\treturn log10(num) + 1;"
+            "}"
+        ],
+        "description": "get digit"
+    },
+
+    "ncr": {
+        "prefix": "ncr",
+        "body": [
+            "const int MAX = $1;"
+
+            "long long fac[MAX], finv[MAX], inv[MAX];"
+
+            "// テーブルを作る前処理"
+            "void COMinit() {"
+            "\tfac[0] = fac[1] = 1;"
+            "\tfinv[0] = finv[1] = 1;"
+            "\tinv[1] = 1;"
+            "\tfor (int i = 2; i < MAX; i++) {"
+            "\t\tfac[i] = fac[i - 1] * i % MOD;"
+            "\t\tinv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;"
+            "\t\tfinv[i] = finv[i - 1] * inv[i] % MOD;"
+            "\t}"
+            "}"
+
+            "// 二項係数計算"
+            "long long COM(int n, int k) {"
+            "    if (n < k) return 0;"
+            "    if (n < 0 || k < 0) return 0;"
+            "    return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;"
+            "}"
+        ],
+        "description": "combination"
+    },
+
+    "vector<~> ~(~);": {
+        "prefix": "vector<~>",
+        "body": [
+            "vector<$1> $2($3)"
+        ],
+        "description": "vector"
+    },
+
+    "vector<vector<~>> ~(~,vector<~>(~));": {
+        "prefix": "vecvec<~>",
+        "body": [
+            "vector<vector<$1>> $2($3,vector<$1>($4))"
+        ],
+        "description": "vectorvector"
+    },
+
+
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else{",
+            "\t${0:}",
+            "}",
+        ],
+        "description": "else ステートメントに対するコード スニペット"
+    },
+
+    "rep": {
+        "prefix": "rep",
+        "body": [
+            "rep($1)"
+        ],
+        "description": "rep"
+    },
+
+    "cinvec": {
+        "prefix": "cinvec",
+        "body": [
+            "cin >> $1[i];"
+        ],
+        "description": "cinvec"
+    },
+
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if(${1:true})"
+        ],
+        "description": "if ステートメントに対するコード スニペット"
+    },
+
+    "ifelse": {
+        "prefix": "ifelse",
+        "body": [
+            "else if(${1:true}){",
+            "\t${0:}",
+            "}"
+        ],
+        "description": "if else ステートメントに対するコード スニペット"
+    },
+
+    "sort": {
+        "prefix": "sortall",
+        "body": [
+            "sort(all($1))"
+        ],
+        "description": "if else ステートメントに対するコード スニペット"
+    },
+
+    "push_back()": {
+        "prefix": "push_back()",
+        "body": [
+            "push_back($1);",
+        ],
+        "description": ""
+    },
+
+    "main template": {
+        "prefix": "maintemp",
+        "body": [
+            "#include<bits/stdc++.h>",
+            "using namespace std;",
+            "#define rep(i, n) for (int i = 0; i < n; i++)",
+            "#define all(x)(x).begin(), (x).end() // 昇順ソート",
+            "#define rall(v)(v).rbegin(), (v).rend() // 降順ソート",
+            "#define INF 1LL << 60",
+            "typedef long long int LL;",
+            "typedef long long int ll;",
+            "#define pll pair < ll, ll >",
+            "#define F first",
+            "#define S second",
+            "const int MOD = 1000000007;",
+            "template < class T > bool chmax(T & a,const T & b) { if (a < b) { a = b; return true; } return false; }",
+            "template < class T > bool chmin(T & a,const T & b) { if (a > b) { a = b; return true; } return false; }",
+            "// 任意のlogは　対数の底の変換を使う    log(N) / log(任意の底)",
+            "",
+            "int main() {",
+            "    ",
+            "}"
+          ],
+        "description": "if else ステートメントに対するコード スニペット"
+    },
+
+    "main ATCODER": {
+        "prefix": "mmmATCODER",
+        "body": [
+            "#include<bits/stdc++.h>",
+            "using namespace std;",
+            "#include<atcoder/all>",
+            "using namespace atcoder;",
+            "// using mint = modint998244353;",
+            "using mint = modint1000000007;",
+            "#define rep(i, n) for (int i = 0; i < n; i++)",
+            "#define all(x)(x).begin(), (x).end() // 昇順ソート",
+            "#define rall(v)(v).rbegin(), (v).rend() // 降順ソート",
+            "#define INF 1LL << 60",
+            "typedef long long int LL;",
+            "typedef long long int ll;",
+            "#define pll pair < ll, ll >",
+            "#define F first",
+            "#define S second",
+            "const int MOD = 1000000007;",
+            "template < class T > bool chmax(T & a,const T & b) { if (a < b) { a = b; return true; } return false; }",
+            "template < class T > bool chmin(T & a,const T & b) { if (a > b) { a = b; return true; } return false; }",
+            "// 任意のlogは　対数の底の変換を使う    log(N) / log(任意の底)",
+            "",
+            "int main() {",
+            "    ",
+            "}",
+        ],
+        "description": "if else ステートメントに対するコード スニペット"
+    },
+
+    "SegTree": {
+        "prefix": "SegTree",
+        "body": [
+            "/*",
+            "segtree<S, op, e> seg(int n);",
+            "segtree<S, op, e> seg(vector<S> v);",
+            "",
+            "using S = int;",
+            "*/",
+            "",
+            "struct S {",
+            "",
+            "};",
+            "",
+            "S op(S ls,S rs){",
+            "    return ;",
+            "}",
+            "",
+            "S e(){",
+            "    return ;",
+            "}",
+            "",
+            "",
+        ],
+        "description": ""
+    },
+
+
+    "lazysegtree": {
+        "prefix": "lazysegtree",
+        "body": [
+            "// コンストラクタ",
+            "lazy_segtree<S, op, e, F, mapping, composition, id> seg(int n);",
+            "lazy_segtree<S, op, e, F, mapping, composition, id> seg(vector<T> v);",
+            "",
+            "// using S = int;",
+            "// とか1変数ならするとおｋ",
+            "",
+            "struct S {",
+            "",
+            "};",
+            "",
+            "S op(S sl,S sr){",
+            "    return ;",
+            "}",
+            "",
+            "S e(){",
+            "    return ;",
+            "}",
+            "",
+            "struct F {",
+            "",
+            "};",
+            "",
+            "S mapping(F f,S s){",
+            "    return ;",
+            "}",
+            "",
+            "F composition(F f,F g){",
+            "    return ;",
+            "",
+            "}",
+            "",
+            "F id(){",
+            "    return ;",
+            "}",
+        ],
+        "description": ""
+    },
+
+
+    "next_permutation": {
+        "prefix": "next_permutation",
+        "body": [
+            "vector<int> per(N);"
+            "rep(i,N)per[i] = i;"
+            "do{"
+            "   "
+            "}while(next_permutation(all(per)));"
+        ],
+        "description": "if else ステートメントに対するコード スニペット"
+    },
+
+    "unionfind": {
+        "prefix": "unionfind",
+        "body": [
+            "struct UnionFind {  // UnionFind uni(N);",
+            "    vector<int> par; // par[i]:iの親の番号　(例) par[3] = 2 : 3の親が2",
+            "    vector<int> siz; // 素集合のサイズを表す配列(1 で初期化)",
+            "",
+            "    UnionFind(int N) : par(N), siz(N, 1){ //最初は全てが根であるとして初期化、頂点数N",
+            "        for(int i = 0; i < N; i++) par[i] = i;",
+            "    }",
+            "",
+            "    int root(int x) { // データxが属する木の根を再帰で得る：root(x) = {xの木の根}",
+            "        if (par[x] == x) return x;",
+            "        return par[x] = root(par[x]);",
+            "    }",
+            "",
+            "    void unite(int x, int y) { // xとyの木を併合",
+            "        int rx = root(x); //xの根をrx",
+            "        int ry = root(y); //yの根をry",
+            "        if (rx == ry) return; //xとyの根が同じ(=同じ木にある)時はそのまま",
+            "        par[rx] = ry; //xとyの根が同じでない(=同じ木にない)時：xの根rxをyの根ryにつける",
+            "        siz[ry] += siz[rx];",
+            "    }",
+            "",
+            "    bool same(int x, int y) { // 2つのデータx, yが属する木が同じならtrueを返す",
+            "        int rx = root(x);",
+            "        int ry = root(y);",
+            "        return rx == ry;",
+            "    }",
+            "",
+            "    int size(int x) { // 素集合のサイズ",
+            "        return siz[root(x)];",
+            "    }",
+            "};",
+        ],
+        "description": "unionfind"
+    },
+
+    "binary_search": {
+        "prefix": "binary_search",
+        "body": [
+            "binary_search(all($1),$2)"
+        ],
+        "description": "binary_search(all($1),$2)"
+    },
+
+    "nibutan": {
+        "prefix": "nibutan",
+        "body": [
+            "int lb = -1; int ub = N;",
+            "while(ub - lb > 1){",
+            "    int mid = (ub+lb)/2;",
+            "    if(/*条件式*/)lb = mid;    // lb,ubは適宜変更",
+            "    else ub = mid;",
+            "}",
+            "",
+        ],
+        "description": ""
+    },
+
+    "setprecision": {
+        "prefix": "setprecision",
+        "body": [
+            "cout << std::fixed << std::setprecision(15) << y << endl;",
+        ],
+        "description": ""
+    },
+
+}
